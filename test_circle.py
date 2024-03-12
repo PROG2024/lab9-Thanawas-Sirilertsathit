@@ -11,10 +11,14 @@ from circle import Circle
 import unittest
 # TODO write 3 tests as described above
 class CircleTest(unittest.TestCase):
+
     def test_negative_radius_construction(self):
         """Illegal case : Trying to construct a circle with negative number radius"""
         with self.assertRaises(ValueError):
             c1 = Circle(-2)
+        with self.assertRaises(ValueError):
+            c2 = Circle(-2.12)
+
     def test_add_area_normal_case(self):
         """Legal case : Trying to add area of two circles to get a bigger circle"""
         c1 = Circle(3)
@@ -25,6 +29,7 @@ class CircleTest(unittest.TestCase):
         self.assertEqual(5,c3.get_radius())
         c4 = c2.add_area(c1)
         self.assertEqual(5,c4.get_radius())
+
     def test_add_area_with_radius_zero(self):
         """Edge case : Trying to add area of two circles which one of them is zero radius"""
         c1 = Circle(3)
