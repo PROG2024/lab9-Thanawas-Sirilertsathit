@@ -3,33 +3,34 @@ import math
 import doctest
 
 class Circle:
-
+    """Doctest of circle class
+    >>> c1 = Circle(3)
+    >>> c2 = Circle(4)
+    >>> c3 = Circle(0)
+    >>> c1.add_area(c2)
+    Circle(5.0)
+    >>> c2.add_area(c3)
+    Circle(4.0)
+    >>> Circle(-3)
+    Traceback (most recent call last):
+    ...
+    ValueError: radius must be non-negative
+    """
     def __init__(self, radius):
         """Initialize a circle with given radius.
         
         :param radius: radius of the circle, may be zero.
         :raises ValueError: if radius is negative.
-        >>> Circle(-3)
-        Traceback (most recent call last):
-        ...
-        ValueError: radius must be non-negative
         """
         if radius < 0:
             raise ValueError("radius must be non-negative")
         self.radius = radius
-
     def add_area(self, circle: Circle):
         """Return a new circle whose area equals the combined
         area of this circle and another circle.
         Since area is pi*r**2, the radii of the 3 circles
         should form a Pythagorean triple (r1^2 + r2^2 = r3^2)
-        >>> c1 = Circle(3)
-        >>> c2 = Circle(4)
-        >>> c3 = Circle(0)
-        >>> c1.add_area(c2)
-        Circle(5.0)
-        >>> c1.add_area(c3)
-        Circle(3.0)
+
         """
         r1 = self.get_radius()
         r2 = circle.get_radius()
