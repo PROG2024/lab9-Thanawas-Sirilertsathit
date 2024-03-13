@@ -9,7 +9,7 @@ Write unit tests as described in README.md.
 """
 from circle import Circle
 import unittest
-# TODO write 3 tests as described above
+
 class CircleTest(unittest.TestCase):
 
     def test_negative_radius_construction(self):
